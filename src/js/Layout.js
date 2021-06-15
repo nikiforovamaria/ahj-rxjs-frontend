@@ -16,7 +16,10 @@ export default class Layout {
     this.incomingEl = document.createElement('p');
     this.incomingEl.className = 'messages__incoming';
     this.incomingEl.textContent = 'Incoming';
+    this.incomingMsgs = document.createElement('div');
+    this.incomingMsgs.className = 'messages__incoming';
     this.messagesEl.append(this.incomingEl);
+    this.messagesEl.append(this.incomingMsgs);
     return this.messagesEl;
   }
 
@@ -35,6 +38,6 @@ export default class Layout {
     this.timestampEl.className = 'message__timestamp';
     this.timestampEl.textContent = timestamp;
     this.messageEl.append(this.contactEl, this.textEl, this.timestampEl);
-    this.incomingEl.insertAdjacentElement('beforeend', this.messageEl);
+    this.incomingMsgs.insertAdjacentElement('afterbegin', this.messageEl);
   }
 }

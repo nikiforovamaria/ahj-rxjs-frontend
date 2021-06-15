@@ -13,9 +13,6 @@ export default class Controller {
   initStream() {
     this.stream$ = this.api.initStream();
     this.stream$.subscribe((messages) => {
-      while (document.querySelector('.message') !== null) {
-        document.querySelector('.message').remove();
-      }
       messages.forEach((message) => {
         this.layout.renderMessage(message.from, message.subject, message.received);
       });
